@@ -1,0 +1,19 @@
+public static void main(String[] args) {
+        String[] entrada = new String[1000];
+        int numEntrada = 0;
+        boolean res;
+
+        do {
+            entrada[numEntrada] = MyIO.readLine();
+        } while(isFim(entrada[numEntrada++]) == false);
+        numEntrada--;
+
+        for(int i=0; i<numEntrada; ++i) {
+            res = isPalindrome(entrada[numEntrada]);
+            if(res == false) {
+                MyIO.println("NÃO");
+            } else {
+                MyIO.println("SIM");
+            }
+        }
+    }
