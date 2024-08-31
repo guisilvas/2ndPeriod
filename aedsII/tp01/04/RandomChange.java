@@ -13,9 +13,7 @@ public class RandomChange {
         generator.setSeed(4);
         int x = ((char)'a' + (Math.abs(generator.nextInt()) % 26));
         int y = ((char)'a' + (Math.abs(generator.nextInt()) % 26));
-
         char[] charS = s.toCharArray();
-
         for (int i = 0; i < s.length(); i++) {
             if(s.charAt(i) == (char)x) {
                 charS[i] = (char)y;
@@ -28,7 +26,6 @@ public class RandomChange {
         String str;
         boolean loop = true;
         
-        // Loop para a leitura e print das palavras
         while (loop) {
             str = MyIO.readLine();
             if (str.equals("FIM")) {

@@ -8,13 +8,13 @@
 import java.util.Scanner;
 
 class Palindrome {
-    // Verifica se a palavra é 'FIM'
-    public static boolean isEnd(String s) {
+    // Função que verifica se a palavra é "FIM"
+    public static boolean IsEnd(String s) {
         return (s.length() == 3 && s.charAt(0) == 'F' && s.charAt(1) == 'I' && s.charAt(2) == 'M');
     }
 
-    // Verifica se a palavra é um palíndromo
-    public static boolean isPalindrome(String s) {
+    // Função recursiva que verifica se a palavra é um palíndromo
+    public static boolean IsPalindrome(String s) {
         for (int i = 0; i < s.length() / 2; i++) {
             if (s.charAt(i) != s.charAt(s.length() - i - 1)) {
                 return false;
@@ -25,21 +25,16 @@ class Palindrome {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String entry;
-        boolean result, loop = true;
+        String str, result;
+        boolean loop = true;
 
         // Loop para a leitura e print das palavras
         while (loop) {
-            entry = sc.nextLine();
-            if (isEnd(entry)) {
+            str = sc.nextLine();
+            if (IsEnd(str)) {
                 loop = false;
             } else {
-                result = isPalindrome(entry);
-                if (result) {
-                    MyIO.println("SIM");
-                } else {
-                    MyIO.println("NAO");
-                }
+                MyIO.println(result = IsPalindrome(str) ? "SIM" : "NAO");
             }
         }
         sc.close();

@@ -39,11 +39,21 @@ void containsSpecialChars(char *s) {
 		    if(s[i] > 47 && s[i] < 58) {
 		        s[i] = s[i]-1;
 		    } else {
-		        s[i] = 'z';
+		        s[i] = changeSpecialChar(s, s[i]);
 		    }
-		}
+		} else {
+            if(s[i] == 'a' || s[i] == 'A') {
+                s[i] += 1;
+            } else {
+                s[i] -= 1;
+            }
+        }
 		i++;
 	}
+}
+
+char changeSpecialChar(char c, char*s) {
+    
 }
 
 // Função para verificar se a palavra é um palíndromo
