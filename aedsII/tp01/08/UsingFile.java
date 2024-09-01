@@ -1,20 +1,23 @@
-/* 
- * Nome: Guilherme Soares Silva
- * Matrícula: 863485
- * Atividade: JAVA TP01Q08 - Arquivo em Java
- * Data: 25/08/2024
- */
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.text.DecimalFormat;
 
 public class UsingFile {
+    private static final int INT_TYPE = 1;
+    private static final int FLOAT_TYPE = 2;
+
     // Writing in the file
-    public static void writeFile(float num, File file) {
+    public static void writeFile(Object num, File file) {
         try (RandomAccessFile writer = new RandomAccessFile(file, "rw")) {
             writer.seek(writer.length());
-            writer.writeFloat(num);
+            if (num instanceof Integer) {
+                writer.writeInt((Integer) num);
+                writer.writeInt(INT_TYPE); 
+            } else if (num instanceof Float) {
+                writer.writeFloat((Float) num);
+                writer.writeInt(FLOAT_TYPE); 
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -24,26 +27,29 @@ public class UsingFile {
     public static void readFile(File file) {
         try (RandomAccessFile reader = new RandomAccessFile(file, "r")) {
             long fileLength = reader.length();
-            int floatSize = Float.BYTES;
-            long position = fileLength - floatSize;
-            reader.seek(position);
-            while (position >= 0) {
-                float num = reader.readFloat();
-                MyIO.println(num);
-                position -= floatSize;
-                if (position >= 0) {
+            long position = fileLength;
+            while (position > 0) {
+                reader.seek(position);
+                int type = reader.readInt();
+                position -= Integer.BYTES;
+                if (type == INT_TYPE) {
                     reader.seek(position);
+                    int num = reader.readInt();
+                    System.out.println(num);
+                } else if (type == FLOAT_TYPE) {
+                    reader.seek(position);
+                    float num = reader.readFloat();
+                    System.out.println(new DecimalFormat("#.##").format(num));
                 }
+                position -= Integer.BYTES;
             }
-            reader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }           
+    }
 
     public static void main(String[] args) {
         int n = MyIO.readInt();
-        float num;
         File file = new File("float.txt");
         try {
             if (!file.exists()) {
@@ -54,8 +60,14 @@ public class UsingFile {
         }
         
         for (int i = 0; i < n; i++) {
-            num = MyIO.readFloat(); 
-            writeFile(num, file);
+            String input = MyIO.readLine();
+            if (input.contains(".")) {
+                float num = Float.parseFloat(input);
+                writeFile(num, file);
+            } else {
+                int num = Integer.parseInt(input);
+                writeFile(num, file);
+            }
         }
         readFile(file);
     }
