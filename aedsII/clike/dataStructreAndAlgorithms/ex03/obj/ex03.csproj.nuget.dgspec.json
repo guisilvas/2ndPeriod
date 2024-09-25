@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/guisilvas/git/2ndPeriod/aedsII/dataStructreAndAlgorithms/ex03/ex03.csproj": {}
+    "/home/guisilvas/git/2ndPeriod/aedsII/clike/dataStructreAndAlgorithms/ex03/ex03.csproj": {}
   },
   "projects": {
-    "/home/guisilvas/git/2ndPeriod/aedsII/dataStructreAndAlgorithms/ex03/ex03.csproj": {
+    "/home/guisilvas/git/2ndPeriod/aedsII/clike/dataStructreAndAlgorithms/ex03/ex03.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/guisilvas/git/2ndPeriod/aedsII/dataStructreAndAlgorithms/ex03/ex03.csproj",
+        "projectUniqueName": "/home/guisilvas/git/2ndPeriod/aedsII/clike/dataStructreAndAlgorithms/ex03/ex03.csproj",
         "projectName": "ex03",
-        "projectPath": "/home/guisilvas/git/2ndPeriod/aedsII/dataStructreAndAlgorithms/ex03/ex03.csproj",
+        "projectPath": "/home/guisilvas/git/2ndPeriod/aedsII/clike/dataStructreAndAlgorithms/ex03/ex03.csproj",
         "packagesPath": "/home/guisilvas/.nuget/packages/",
-        "outputPath": "/home/guisilvas/git/2ndPeriod/aedsII/dataStructreAndAlgorithms/ex03/obj/",
+        "outputPath": "/home/guisilvas/git/2ndPeriod/aedsII/clike/dataStructreAndAlgorithms/ex03/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/guisilvas/.nuget/NuGet/NuGet.Config"
